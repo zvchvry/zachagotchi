@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Fix flaky coffee assertions by freezing the unit-test clock; retain a separate test that coffee applies real elapsed care decay.
+- Fix Windows CI when npm is launched from PowerShell 7: clear the inherited module search path only in the child Windows PowerShell test process, so its built-in hashing module can load. No firmware or installer behavior change.
+
 ## 0.3.0 — first public source release (preview)
 
 - Add project origin story, parts list, four real browser-preview screenshots, and step-by-step Mac/Windows installation instructions.
