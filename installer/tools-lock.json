@@ -1,0 +1,30 @@
+{
+  "version": "5.6.0",
+  "source": "https://github.com/espressif/esptool/releases/tag/v5.6.0",
+  "tools": [
+    {
+      "name": "esptool-arm64",
+      "platform": "macos",
+      "archive": "esptool-v5.6.0-macos-arm64.tar.gz",
+      "archiveSha256": "08a58829a3f14bb08f2e39f4cad48dcb14b7000384268e7f06689836332d6e25",
+      "path": "esptool-macos-arm64/esptool",
+      "sha256": "fe300417054386e8c15f916216924accb05d0132411bfce3b223ad621f0de6d9"
+    },
+    {
+      "name": "esptool-amd64",
+      "platform": "macos",
+      "archive": "esptool-v5.6.0-macos-amd64.tar.gz",
+      "archiveSha256": "23921776a7df75f2e6f3ca10a604d74db4661e1b8a0ebb89bdddcd2d26f37055",
+      "path": "esptool-macos-amd64/esptool",
+      "sha256": "4dd42149be48880fd066fbf8a0f0ac16d38bfcf652451c6491e2b55bc5722c5e"
+    },
+    {
+      "name": "esptool.exe",
+      "platform": "windows",
+      "archive": "esptool-v5.6.0-windows-amd64.zip",
+      "archiveSha256": "d55a96fbeb97fd4cb05bd93f201e5c8f6518b7bfcde2fc6966fd0190fd891629",
+      "path": "esptool-windows-amd64/esptool.exe",
+      "sha256": "7a4fc0b651197d8034dab52db1468ebf5c009d8e754306e59c7de0aa47767914"
+    }
+  ]
+}

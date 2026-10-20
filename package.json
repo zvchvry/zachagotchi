@@ -1,0 +1,20 @@
+{
+  "name": "zachagotchi",
+  "version": "0.3.0",
+  "description": "A customizable monochrome pocket human for the Freenove FNK0104B ESP32-S3 touch display",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/serve.cjs",
+    "test": "node --test tests/*.test.cjs",
+    "build:dmg:preview": "node scripts/build-dmg.cjs --preview",
+    "build:dmg": "node scripts/build-dmg.cjs --board=FNK0104B",
+    "build:windows": "node scripts/build-windows.cjs",
+    "build:source": "node scripts/build-source.cjs",
+    "build:third-party": "node scripts/build-third-party.cjs",
+    "fetch:tools": "node scripts/fetch-esptool.cjs",
+    "check:release": "node scripts/check-release.cjs",
+    "build:firmware": "node scripts/build-firmware.cjs",
+    "setup:firmware": "node scripts/setup-firmware.cjs"
+  }
+}

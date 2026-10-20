@@ -1,0 +1,14 @@
+.build/
+release/
+.DS_Store
+**/.DS_Store
+node_modules/
+firmware/Zachagotchi/build/
+*.log
+.env
+.env.*
+!.env.example
+installer/vendor/
+installer/firmware/*.bin
+installer/firmware/manifest.tsv
+installer/firmware/board.txt

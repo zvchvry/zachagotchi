@@ -1,0 +1,69 @@
+name: Build release packages
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  packages:
+    runs-on: macos-15
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.13'
+      - run: npm test
+      - run: npm run setup:firmware
+      - run: npm run fetch:tools
+      - run: npm run build:firmware
+      - run: npm run build:dmg
+      - run: npm run build:windows
+      - run: npm run build:third-party
+      - run: npm run build:source
+      - run: npm run check:release
+      - name: Verify DMG integrity
+        run: hdiutil verify release/*.dmg
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: release-packages
+          path: release/
+          if-no-files-found: error
+          retention-days: 14
+  validate-windows:
+    needs: packages
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '22'
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        with:
+          name: release-packages
+          path: release
+      - name: Windows PowerShell mock safety tests
+        shell: powershell
+        run: npm test
+      - name: Validate packaged firmware and run native Windows tool (no serial access)
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $zip = @(Get-ChildItem release/*-Windows-x64.zip)
+          if ($zip.Count -ne 1) { throw 'Expected exactly one Windows package' }
+          $expected = (Get-Content ($zip[0].FullName + '.sha256') -Raw).Split(' ')[0]
+          if ((Get-FileHash $zip[0].FullName -Algorithm SHA256).Hash.ToLowerInvariant() -ne $expected) { throw 'ZIP checksum mismatch' }
+          Expand-Archive -LiteralPath $zip[0].FullName -DestinationPath windows-package
+          $script = @(Get-ChildItem windows-package -Recurse -Filter flash.ps1)
+          if ($script.Count -ne 1) { throw 'Missing/duplicate flasher script' }
+          powershell.exe -NoProfile -ExecutionPolicy Bypass -File $script[0].FullName -Check
+          if ($LASTEXITCODE -ne 0) { throw 'Payload validation failed' }
+          powershell.exe -NoProfile -ExecutionPolicy Bypass -File $script[0].FullName -ToolVersion
+          if ($LASTEXITCODE -ne 0) { throw 'Native Windows flashing tool failed to start' }

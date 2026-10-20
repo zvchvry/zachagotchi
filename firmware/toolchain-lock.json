@@ -1,0 +1,21 @@
+{
+  "arduinoCli": "v1.5.1",
+  "archives": [
+    {
+      "name": "arduino-cli_1.5.1_macOS_64bit.tar.gz",
+      "url": "https://github.com/arduino/arduino-cli/releases/download/v1.5.1/arduino-cli_1.5.1_macOS_64bit.tar.gz",
+      "sha256": "c982e940027996bea9901050e95fae99c59c1dcfee54beedecaf28141e7bf2e7"
+    },
+    {
+      "name": "arduino-cli_1.5.1_macOS_ARM64.tar.gz",
+      "url": "https://github.com/arduino/arduino-cli/releases/download/v1.5.1/arduino-cli_1.5.1_macOS_ARM64.tar.gz",
+      "sha256": "cb952e8c1621c95ef5f1d17831c945e3d0ec5973f89c557a7ec8feb9c4f7d4c9"
+    }
+  ],
+  "esp32": "3.3.12",
+  "libraries": [
+    "Adafruit ILI9341@1.6.4",
+    "Adafruit GFX Library@1.12.6",
+    "Adafruit BusIO@1.17.4"
+  ]
+}

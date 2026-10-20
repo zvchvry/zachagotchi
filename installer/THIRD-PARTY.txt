@@ -1,0 +1,32 @@
+Zachagotchi uses:
+- Espressif esptool 5.6.0, GPL-2.0-or-later. The full license accompanies this
+  installer as LICENSE.esptool. Source: https://github.com/espressif/esptool/tree/v5.6.0
+  Official native Mac and Windows x64 binaries; archive and executable SHA-256 digests are pinned.
+- Arduino-ESP32 3.3.12 / ESP-IDF and their bundled libraries.
+  Source and licenses: https://github.com/espressif/arduino-esp32/tree/3.3.12
+- Adafruit ILI9341 1.6.4, Adafruit GFX 1.12.6, Adafruit BusIO 1.17.4.
+  Source and licenses: https://github.com/adafruit/Adafruit_ILI9341
+  https://github.com/adafruit/Adafruit-GFX-Library
+  https://github.com/adafruit/Adafruit_BusIO
+The firmware source is included in firmware-source. Hardware wiring was checked
+against Freenove's public examples; no Freenove branded graphics are bundled.
+- ES8311 driver: Copyright 2015–2022 Espressif Systems (Shanghai) CO LTD,
+  Apache-2.0 (license included as licenses/ES8311-Apache-2.0.txt).
+  Apache-marked source files obtained from Freenove/Freenove_ESP32_S3_Display,
+  commit 90004f874ed567b3c09d534d021172cb716e61a1,
+  Tutorial_With_Touch/Sketches/Sketch_07.1_Music/es8311.{cpp,h}, es8311_reg.h.
+  https://github.com/Freenove/Freenove_ESP32_S3_Display/tree/90004f874ed567b3c09d534d021172cb716e61a1/Tutorial_With_Touch/Sketches/Sketch_07.1_Music
+  Modified for the shared Wire bus, null-safe allocation, and application-owned
+  clock/volume initialization. No demo music or other audio assets are included.
+
+The standalone tools retain upstream Python/runtime dependency licensing; exact
+esptool source and upstream packaging/dependency declarations accompany the
+release in Zachagotchi-0.3.0-Third-Party-Sources.zip. Arduino-ESP32 core is
+LGPL-2.1-or-later; SDK/components retain their individual licenses. The pinned
+ESP32-S3 package reports ESP-IDF v5.5.5. Matching core/SDK/Adafruit upstream
+source archives and hashes are in the same third-party-source asset. Modified
+Zachagotchi/codec source is in the project Source.zip/tag. See docs/THIRD_PARTY.md.
+
+Only original Zachagotchi code, artwork, audio, and documentation are MIT
+licensed. This does not relicense any third-party component or external case.
+No Didget Library case or software is distributed.

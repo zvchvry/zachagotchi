@@ -1,0 +1,46 @@
+{
+  "sources": [
+    {
+      "name": "esptool",
+      "version": "5.6.0",
+      "file": "esptool-5.6.0-source.tar.gz",
+      "url": "https://codeload.github.com/espressif/esptool/tar.gz/refs/tags/v5.6.0",
+      "sha256": "33c1907f45513240d04057b93857b1e1b155396dc41d96cf2ae4cb7aabaa782c"
+    },
+    {
+      "name": "arduino-esp32",
+      "version": "3.3.12",
+      "file": "arduino-esp32-3.3.12-source.tar.gz",
+      "url": "https://codeload.github.com/espressif/arduino-esp32/tar.gz/refs/tags/3.3.12",
+      "sha256": "c553ae1c05e5b53e9c84a25d7feccc1c51f5110447b273d70ab4d752f0d933ad"
+    },
+    {
+      "name": "Adafruit_ILI9341",
+      "version": "1.6.4",
+      "file": "Adafruit_ILI9341-1.6.4-source.tar.gz",
+      "url": "https://codeload.github.com/adafruit/Adafruit_ILI9341/tar.gz/refs/tags/1.6.4",
+      "sha256": "5035eaaaceb4e339156d810d47f48425864e7ffc3dc840fb4cb5c5781792edfd"
+    },
+    {
+      "name": "Adafruit-GFX-Library",
+      "version": "1.12.6",
+      "file": "Adafruit-GFX-Library-1.12.6-source.tar.gz",
+      "url": "https://codeload.github.com/adafruit/Adafruit-GFX-Library/tar.gz/refs/tags/1.12.6",
+      "sha256": "3874218e5b9947ea11132cea5d6e8945f48306a5dada5b5b52f8f9ded53ee88f"
+    },
+    {
+      "name": "Adafruit_BusIO",
+      "version": "1.17.4",
+      "file": "Adafruit_BusIO-1.17.4-source.tar.gz",
+      "url": "https://codeload.github.com/adafruit/Adafruit_BusIO/tar.gz/refs/tags/1.17.4",
+      "sha256": "59efa3acd5466e381c1b0313d5f0e824832db1bb24e4e328667e12b7d235d56d"
+    },
+    {
+      "name": "esp-idf",
+      "version": "5.5.5",
+      "file": "esp-idf-5.5.5-source.tar.gz",
+      "url": "https://codeload.github.com/espressif/esp-idf/tar.gz/refs/tags/v5.5.5",
+      "sha256": "c5d0e1352f5055f55efbccca179c2fd02ad3ad1754419bbac1b80adcdcf5ef80"
+    }
+  ]
+}
